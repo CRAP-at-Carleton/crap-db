@@ -15,6 +15,7 @@ else:
 
 	MONGO_DBNAME = 'test_courses'
 
+X_DOMAINS = '*'
 RENDERERS = ['eve.render.JSONRenderer']
 
 #definition of the API
