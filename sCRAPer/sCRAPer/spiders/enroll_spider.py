@@ -1,15 +1,17 @@
 import scrapy
 import w3lib.html
+from .starter_data import DEPTS
 
 
 class QuotesSpider(scrapy.Spider):
     name = "enroll"
 
     def start_requests(self):
-        urls = [
-            'https://apps.carleton.edu/campus/registrar/schedule/enroll/?term=18WI&subject=BIOL',
-            'https://apps.carleton.edu/campus/registrar/schedule/enroll/?term=18WI&subject=ENGL',
-        ]
+
+        term = '18WI'
+        base_url = 'https://apps.carleton.edu/campus/registrar/schedule/enroll/'
+        urls = [base_url+'?term={}&subject={}'.format(term, dept) for dept in DEPTS]
+
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
@@ -25,6 +27,8 @@ class QuotesSpider(scrapy.Spider):
 
 
 def get_parse_dict(course):
+    """helper fcn to QuotesSpider.parse()"""
+
     # course name, credits, building, room
     name = course.css('.title::text').extract_first().strip()
     credits = course.css('.title .credits::text').extract_first().strip().split(' ')[0]
@@ -48,7 +52,7 @@ def get_parse_dict(course):
     _struct = course.css('table.schedule td').extract()
     _vals = []
     for row in _struct:
-        d = {'start': None,'end': None,}
+        d = {'start': None, 'end': None,}
         content = w3lib.html.remove_tags(row)
         if content:
             mid = content.index('m') + 1
