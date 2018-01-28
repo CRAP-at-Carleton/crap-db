@@ -14,15 +14,82 @@ else:
 	MONGO_PORT = 27017
 
 	MONGO_DBNAME = 'test_courses'
-	RENDERERS = ['eve.render.JSONRenderer']
+
+RENDERERS = ['eve.render.JSONRenderer']
 
 #definition of the API
 schema = {
+	'dept': {
+		'type': 'string'
+	},
+	'course_num': {
+		'type': 'string'
+	},
+	'course_section': {
+		'type': 'string'
+	},
+	'credits': {
+		'type': 'string'
+	},
 	'name': {
-		'type':'string',
+		'type': 'string'
+	},
+	'prof': {
+		'type': 'string'
+	},
+	'building': {
+		'type': 'string'
+	},
+	'room_num': {
+		'type': 'string'
 	},
 	'description': {
-		'type':'string',
+		'type': 'string'
+	},
+	'sched': {
+		'type': 'dict',
+		'schema': {
+			'mon': {
+				'start': {
+					'type': 'string'
+				},
+				'end': {
+					'type': 'string'
+				}
+			},
+			'tue': {
+				'start': {
+					'type': 'string'
+				},
+				'end': {
+					'type': 'string'
+				}
+			},
+			'wed': {
+				'start': {
+					'type': 'string'
+				},
+				'end': {
+					'type': 'string'
+				}
+			},
+			'thu': {
+				'start': {
+					'type': 'string'
+				},
+				'end': {
+					'type': 'string'
+				}
+			},
+			'fri': {
+				'start': {
+					'type': 'string'
+				},
+				'end': {
+					'type': 'string'
+				}
+			}
+		}
 	}
 }
 
@@ -35,4 +102,6 @@ courses = {
 	'schema' : schema
 }
 
-DOMAIN = {'courses': courses}
+DOMAIN = {
+	'courses': courses
+}
