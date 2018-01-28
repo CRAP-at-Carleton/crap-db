@@ -26,7 +26,7 @@ class QuotesSpider(scrapy.Spider):
             yield get_parse_dict(course)
 
 
-def get_parse_dict(course):
+def get_parse_dict(course) -> dict:
     """helper fcn to QuotesSpider.parse()"""
 
     # course name, credits, building, room
@@ -65,4 +65,4 @@ def get_parse_dict(course):
     return dict(
         name=name, credits=credits, dept=dept, course_num=course_num,
         course_section=course_section, prof=prof, description=description,
-        prereq=prereq, building=building, room_num=room_num, sched=sched, )
+        prereq=prereq, building=building, room_num=room_num, sched=sched,)
