@@ -1,3 +1,5 @@
+w3lib
+scrapy
 Cerberus==0.9.2
 certifi==2018.1.18
 click==6.7
