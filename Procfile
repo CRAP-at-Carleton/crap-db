@@ -1,1 +1,1 @@
-web gunicorn --pythonpath eve run:app
+web gunicorn run:app
