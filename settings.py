@@ -51,42 +51,42 @@ schema = {
         'schema': {
             'mon': {
                 'start': {
-                    'type': 'string'
+                    'type': 'datetime'
                 },
                 'end': {
-                    'type': 'string'
+                    'type': 'datetime'
                 }
             },
             'tue': {
                 'start': {
-                    'type': 'string'
+                    'type': 'datetime'
                 },
                 'end': {
-                    'type': 'string'
+                    'type': 'datetime'
                 }
             },
             'wed': {
                 'start': {
-                    'type': 'string'
+                    'type': 'datetime'
                 },
                 'end': {
-                    'type': 'string'
+                    'type': 'datetime'
                 }
             },
             'thu': {
                 'start': {
-                    'type': 'string'
+                    'type': 'datetime'
                 },
                 'end': {
-                    'type': 'string'
+                    'type': 'datetime'
                 }
             },
             'fri': {
                 'start': {
-                    'type': 'string'
+                    'type': 'datetime'
                 },
                 'end': {
-                    'type': 'string'
+                    'type': 'datetime'
                 }
             }
         }
