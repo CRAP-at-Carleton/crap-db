@@ -6,7 +6,7 @@ if heroku_uri:
     MONGO_URI = heroku_uri
 else:
     # This assumes that there is a database called 'test_courses'
-    # and that db has a table 'courses'
+    # and that db has a table 'courses' and a table 'periods'
 
     # Mongodb settings
     MONGO_HOST = 'localhost'
@@ -18,7 +18,7 @@ X_DOMAINS = '*'
 RENDERERS = ['eve.render.JSONRenderer']
 
 # definition of the API
-schema = {
+course_schema = {
     'dept': {
         'type': 'string'
     },
@@ -93,15 +93,66 @@ schema = {
     }
 }
 
+period_schema = {
+    'name' : {
+        'type' : 'string'
+    },
+    'mon': {
+        'start': {
+            'type': 'datetime'
+        },
+        'end': {
+            'type': 'datetime'
+        }
+    }, 
+    'tue': {
+        'start': {
+            'type': 'datetime'
+        },
+        'end': {
+            'type': 'datetime'
+        }
+    }, 
+    'wed': {
+        'start': {
+            'type': 'datetime'
+        },
+        'end': {
+            'type': 'datetime'
+        }
+    }, 
+    'thu': {
+        'start': {
+            'type': 'datetime'
+        },
+        'end': {
+            'type': 'datetime'
+        }
+    }, 
+    'fri': {
+        'start': {
+            'type': 'datetime'
+        },
+        'end': {
+            'type': 'datetime'
+        }
+    }
+}
+
 courses = {
     'item_title': 'course',
     'additional_lookup': {
         'url': 'regex("[\w+]")',
         'field': 'name'
     },
-    'schema': schema
+    'schema': course_schema
+}
+
+periods = {
+    'schema': period_schema
 }
 
 DOMAIN = {
-    'courses': courses
+    'courses': courses,
+    'periods': periods
 }
