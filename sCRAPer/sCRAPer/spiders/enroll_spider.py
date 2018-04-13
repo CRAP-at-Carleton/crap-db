@@ -1,5 +1,6 @@
 import scrapy
 import w3lib.html
+from datetime import datetime
 from .starter_data import DEPTS
 
 
@@ -56,8 +57,8 @@ def get_parse_dict(course) -> dict:
         content = w3lib.html.remove_tags(row)
         if content:
             mid = content.index('m') + 1
-            d['start'] = content[:mid]
-            d['end'] = content[mid:]
+            d['start'] = datetime.strptime(content[:mid], '%I:%M%p')
+            d['end'] = datetime.strptime(content[mid:], '%I:%M%p')
         _vals.append(d)
     _days = ['mon', 'tue', 'wed', 'thu', 'fri']
     sched = dict(zip(_days, _vals))
