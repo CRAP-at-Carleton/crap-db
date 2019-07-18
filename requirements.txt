@@ -5,7 +5,7 @@ certifi==2018.1.18
 click==6.7
 Eve==0.7.6
 Events==0.2.2
-Flask==0.12
+Flask==0.12.3
 Flask-PyMongo==0.5.1
 gunicorn==19.7.1
 itsdangerous==0.24
