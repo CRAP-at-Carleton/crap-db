@@ -1,7 +1,7 @@
 w3lib
 scrapy
 Cerberus==0.9.2
-certifi==2018.1.18
+certifi==2022.12.7
 click==6.7
 Eve==0.7.6
 Events==0.2.2
